@@ -17,7 +17,7 @@ public class TestMethod {
 
     @Test
     public void givenStateCensusAnalyserFile_WhenImproperFileName_ReturnsException() throws IOException {
-        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/stateCensusData.csv";
+        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData.csv";
         StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
         try {
             censusAnalyser.loadData();
@@ -34,6 +34,17 @@ public class TestMethod {
             censusAnalyser.loadData();
         } catch (StatesCensusAnalyserException e) {
             Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND,e.exceptionType);
+        }
+    }
+
+    @Test
+    public void givenStateCensusAnalyserFile_WhenIncorrectDelimiters_ReturnsException() throws IOException {
+        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData1.csv";
+        StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
+        try {
+            censusAnalyser.loadData();
+        } catch (StatesCensusAnalyserException e) {
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_INCORRECT,e.exceptionType);
         }
     }
 }

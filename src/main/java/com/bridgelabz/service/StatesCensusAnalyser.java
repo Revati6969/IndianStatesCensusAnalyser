@@ -44,7 +44,10 @@ public class StatesCensusAnalyser {
            }
        } catch (NoSuchFileException e) {
            throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
-
+       }catch(RuntimeException e) {
+           throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.DELIMITER_INCORRECT);
+       }catch (IOException e) {
+           e.getStackTrace();
        }
        return count;
     }

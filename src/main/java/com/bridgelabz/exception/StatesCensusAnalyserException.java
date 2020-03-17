@@ -3,7 +3,8 @@ package com.bridgelabz.exception;
 public class StatesCensusAnalyserException extends Exception {
 
     public enum ExceptionType{
-        FILE_NOT_FOUND
+        FILE_NOT_FOUND,
+        DELIMITER_INCORRECT
     }
     public ExceptionType exceptionType;
 
