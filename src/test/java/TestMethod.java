@@ -1,13 +1,28 @@
+import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.bridgelabz.service.StatesCensusAnalyser;
 import org.junit.Assert;
 import org.junit.Test;
 import java.io.IOException;
 
+import static com.bridgelabz.service.StatesCensusAnalyser.CSV_FILE_PATH;
+
 public class TestMethod {
     @Test
-    public void givenStateCensusAnalyserFile_WhenTrue_NumberOfRecordShouldMatch() throws IOException {
-        StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser();
+    public void givenStateCensusAnalyserFile_WhenTrue_NumberOfRecordShouldMatch() throws IOException, StatesCensusAnalyserException {
+        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData.csv";
+        StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser( CSV_FILE_PATH);
         int count = censusAnalyser.loadData();
         Assert.assertEquals(29, count);
+    }
+
+    @Test
+    public void givenStateCensusAnalyserFile_WhenImproperFileName_ReturnsException() throws IOException {
+        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/stateCensusData.csv";
+        StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
+        try {
+            censusAnalyser.loadData();
+        } catch (StatesCensusAnalyserException e) {
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND,e.exceptionType);
+        }
     }
 }
