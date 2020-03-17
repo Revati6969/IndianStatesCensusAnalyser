@@ -8,6 +8,7 @@ import com.opencsv.exceptions.CsvException;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.List;
@@ -41,7 +42,7 @@ public class StatesCensusAnalyser {
                System.out.println("Population: " + csvStateCensus.getPopulation());
                count++;
            }
-       } catch (IOException e) {
+       } catch (NoSuchFileException e) {
            throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
 
        }
