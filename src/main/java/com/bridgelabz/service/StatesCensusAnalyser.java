@@ -24,7 +24,7 @@ public class StatesCensusAnalyser {
     }
 
 
-    public int loadData() throws IOException, StatesCensusAnalyserException {
+    public int loadData() throws StatesCensusAnalyserException {
 
        try (Reader reader = newBufferedReader(Paths.get(CSV_FILE_PATH));
        ) {
@@ -45,7 +45,7 @@ public class StatesCensusAnalyser {
        } catch (NoSuchFileException e) {
            throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
        }catch(RuntimeException e) {
-           throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.DELIMITER_INCORRECT);
+           throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
        }catch (IOException e) {
            e.getStackTrace();
        }

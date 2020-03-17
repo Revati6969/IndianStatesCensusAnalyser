@@ -8,7 +8,7 @@ import static com.bridgelabz.service.StatesCensusAnalyser.CSV_FILE_PATH;
 
 public class TestMethod {
     @Test
-    public void givenStateCensusAnalyserFile_WhenTrue_NumberOfRecordShouldMatch() throws IOException, StatesCensusAnalyserException {
+    public void givenStateCensusAnalyserFile_WhenTrue_NumberOfRecordShouldMatch() throws StatesCensusAnalyserException {
         CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData.csv";
         StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser( CSV_FILE_PATH);
         int count = censusAnalyser.loadData();
@@ -16,7 +16,7 @@ public class TestMethod {
     }
 
     @Test
-    public void givenStateCensusAnalyserFile_WhenImproperFileName_ReturnsException() throws IOException {
+    public void givenStateCensusAnalyserFile_WhenImproperFileName_ReturnsException()  {
         CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData.csv";
         StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
         try {
@@ -27,7 +27,7 @@ public class TestMethod {
     }
 
     @Test
-    public void givenStateCensusAnalyserFile_WhenImproperFileExtension_ReturnsException() throws IOException {
+    public void givenStateCensusAnalyserFile_WhenImproperFileExtension_ReturnsException()  {
         CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/stateCensusData.txt";
         StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
         try {
@@ -38,13 +38,24 @@ public class TestMethod {
     }
 
     @Test
-    public void givenStateCensusAnalyserFile_WhenIncorrectDelimiters_ReturnsException() throws IOException {
+    public void givenStateCensusAnalyserFile_WhenIncorrectDelimiters_ReturnsException()  {
         CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData1.csv";
         StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
         try {
             censusAnalyser.loadData();
         } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_INCORRECT,e.exceptionType);
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT,e.exceptionType);
+        }
+    }
+
+    @Test
+    public void givenStateCensusAnalyserFile_WhenIncorrectHeader_ReturnsException()  {
+        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData2.csv";
+        StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
+        try {
+            censusAnalyser.loadData();
+        } catch (StatesCensusAnalyserException e) {
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT,e.exceptionType);
         }
     }
 }
