@@ -25,4 +25,15 @@ public class TestMethod {
             Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND,e.exceptionType);
         }
     }
+
+    @Test
+    public void givenStateCensusAnalyserFile_WhenImproperFileExtension_ReturnsException() throws IOException {
+        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/stateCensusData.txt";
+        StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
+        try {
+            censusAnalyser.loadData();
+        } catch (StatesCensusAnalyserException e) {
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND,e.exceptionType);
+        }
+    }
 }
