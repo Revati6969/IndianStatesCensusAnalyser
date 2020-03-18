@@ -82,5 +82,16 @@ public class TestMethod {
             Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
+
+    @Test
+    public void givenStateCode_WhenImproperFileType_ReturnException(){
+        FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCode.txt";
+        CSVStates csvStates = new CSVStates(FILE_PATH);
+        try {
+            csvStates.LoadCSVData();
+        } catch (StatesCensusAnalyserException e) {
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        }
+    }
 }
 
