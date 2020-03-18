@@ -50,7 +50,7 @@ public class TestMethod {
 
     @Test
     public void givenStateCensusAnalyserFile_WhenIncorrectHeader_ReturnsException()  {
-        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData2.csv";
+        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData1.csv";
         StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
         try {
             censusAnalyser.loadData();
