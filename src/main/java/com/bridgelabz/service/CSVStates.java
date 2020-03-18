@@ -43,7 +43,10 @@ public class CSVStates {
             }
         } catch (NoSuchFileException e) {
             throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
-        } catch (IOException e) {
+        }catch (RuntimeException e){
+            throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
         return count;

@@ -54,7 +54,7 @@ public class TestMethod {
 
     @Test
     public void givenStateCensusAnalyserFile_WhenIncorrectHeader_ReturnsException() {
-        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData1.csv";
+        CSV_FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCensusData2.csv";
         StatesCensusAnalyser censusAnalyser = new StatesCensusAnalyser(CSV_FILE_PATH);
         try {
             censusAnalyser.loadData();
@@ -91,6 +91,28 @@ public class TestMethod {
             csvStates.LoadCSVData();
         } catch (StatesCensusAnalyserException e) {
             Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        }
+    }
+
+    @Test
+    public void givenStateCode_WhenImproperDelimiter_ReturnException(){
+        FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCode1.csv";
+        CSVStates csvStates = new CSVStates(FILE_PATH);
+        try {
+            csvStates.LoadCSVData();
+        } catch (StatesCensusAnalyserException e) {
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
+        }
+    }
+
+    @Test
+    public void givenStateCode_WhenImproperHeader_ReturnException(){
+        FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCode2.csv";
+        CSVStates csvStates = new CSVStates(FILE_PATH);
+        try {
+            csvStates.LoadCSVData();
+        } catch (StatesCensusAnalyserException e) {
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
         }
     }
 }
