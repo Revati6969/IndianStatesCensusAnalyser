@@ -1,12 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestMethod" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-03-18T05:30:17" hostname="admin1-desktop" time="0.315">
+<testsuite name="TestMethod" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-03-18T10:07:53" hostname="admin1-desktop" time="0.216">
   <properties/>
-  <testcase name="givenStateCensusAnalyserFile_WhenIncorrectHeader_ReturnsException" classname="TestMethod" time="0.15"/>
-  <testcase name="givenStateCensusAnalyserFile_WhenImproperFileExtension_ReturnsException" classname="TestMethod" time="0.001"/>
-  <testcase name="givenStateCensusAnalyserFile_WhenIncorrectDelimiters_ReturnsException" classname="TestMethod" time="0.014"/>
-  <testcase name="givenStateCensusAnalyserFile_WhenImproperFileName_ReturnsException" classname="TestMethod" time="0.073"/>
-  <testcase name="givenStateCensusAnalyserFile_WhenTrue_NumberOfRecordShouldMatch" classname="TestMethod" time="0.076"/>
-  <system-out><![CDATA[State: Uttar Pradesh
+  <testcase name="givenStateCode_WhenImproperHeader_ReturnException" classname="TestMethod" time="0.126"/>
+  <testcase name="givenStateCode_WhenTrue_NumberOfRecordShouldMatch" classname="TestMethod" time="0.034"/>
+  <testcase name="givenStateCensusAnalyserFile_WhenIncorrectHeader_ReturnsException" classname="TestMethod" time="0.006"/>
+  <testcase name="givenStateCensusAnalyserFile_WhenImproperFileExtension_ReturnsException" classname="TestMethod" time="0.0"/>
+  <testcase name="givenStateCensusAnalyserFile_WhenIncorrectDelimiters_ReturnsException" classname="TestMethod" time="0.004"/>
+  <testcase name="givenStateCode_WhenImproperDelimiter_ReturnException" classname="TestMethod" time="0.004"/>
+  <testcase name="givenStateCode_WhenImproperFileName_ReturnException" classname="TestMethod" time="0.0"/>
+  <testcase name="givenStateCensusAnalyserFile_WhenImproperFileName_ReturnsException" classname="TestMethod" time="0.02"/>
+  <testcase name="givenStateCode_WhenImproperFileType_ReturnException" classname="TestMethod" time="0.0"/>
+  <testcase name="givenStateCensusAnalyserFile_WhenTrue_NumberOfRecordShouldMatch" classname="TestMethod" time="0.02"/>
+  <system-out><![CDATA[SrNo :1
+StateName :Andaman and Nicobar Islands
+StateCode :35
+TIN :AN
+=========================
+SrNo :2
+StateName :Andhra Pradesh
+StateCode :28
+TIN :AP
+=========================
+SrNo :3
+StateName :Andhra Pradesh New
+StateCode :37
+TIN :AD
+=========================
+SrNo :4
+StateName :Arunachal Pradesh
+StateCode :12
+TIN :AR
+=========================
+SrNo :5
+StateName :Assam
+StateCode :18
+TIN :AS
+=========================
+SrNo :6
+StateName :Bihar
+StateCode :10
+TIN :BH
+=========================
+SrNo :7
+StateName :Chandigarh
+StateCode :04
+TIN :CH
+=========================
+SrNo :8
+StateName :Chattisgarh
+StateCode :22
+TIN :CT
+=========================
+SrNo :9
+StateName :Dadra and Nagar Haveli
+StateCode :26
+TIN :DN
+=========================
+SrNo :10
+StateName :Daman and Diu
+StateCode :25
+TIN :DD
+=========================
+SrNo :11
+StateName :Delhi
+StateCode :07
+TIN :DL
+=========================
+SrNo :12
+StateName :Goa
+StateCode :30
+TIN :GA
+=========================
+SrNo :13
+StateName :Gujarat
+StateCode :24
+TIN :GJ
+=========================
+SrNo :14
+StateName :Haryana
+StateCode :06
+TIN :HR
+=========================
+SrNo :15
+StateName :Himachal Pradesh
+StateCode :02
+TIN :HP
+=========================
+SrNo :16
+StateName :Jammu and Kashmir
+StateCode :01
+TIN :JK
+=========================
+SrNo :17
+StateName :Jharkhand
+StateCode :20
+TIN :JH
+=========================
+SrNo :18
+StateName :Karnataka
+StateCode :29
+TIN :KA
+=========================
+SrNo :19
+StateName :Kerala
+StateCode :32
+TIN :KL
+=========================
+SrNo :20
+StateName :Lakshadweep Islands
+StateCode :31
+TIN :LD
+=========================
+SrNo :21
+StateName :Madhya Pradesh
+StateCode :23
+TIN :MP
+=========================
+SrNo :22
+StateName :Maharashtra
+StateCode :27
+TIN :MH
+=========================
+SrNo :23
+StateName :Manipur
+StateCode :14
+TIN :MN
+=========================
+SrNo :24
+StateName :Meghalaya
+StateCode :17
+TIN :ME
+=========================
+SrNo :25
+StateName :Mizoram
+StateCode :15
+TIN :MI
+=========================
+SrNo :26
+StateName :Nagaland
+StateCode :13
+TIN :NL
+=========================
+SrNo :27
+StateName :Odisha
+StateCode :21
+TIN :OR
+=========================
+SrNo :28
+StateName :Pondicherry
+StateCode :34
+TIN :PY
+=========================
+SrNo :29
+StateName :Punjab
+StateCode :03
+TIN :PB
+=========================
+SrNo :30
+StateName :Rajasthan
+StateCode :08
+TIN :RJ
+=========================
+SrNo :31
+StateName :Sikkim
+StateCode :11
+TIN :SK
+=========================
+SrNo :32
+StateName :Tamil Nadu
+StateCode :33
+TIN :TN
+=========================
+SrNo :33
+StateName :Telangana
+StateCode :36
+TIN :TS
+=========================
+SrNo :34
+StateName :Tripura
+StateCode :16
+TIN :TR
+=========================
+SrNo :35
+StateName :Uttar Pradesh
+StateCode :09
+TIN :UP
+=========================
+SrNo :36
+StateName :Uttarakhand
+StateCode :05
+TIN :UT
+=========================
+SrNo :37
+StateName :West Bengal
+StateCode :19
+TIN :WB
+=========================
+State: Uttar Pradesh
 Area: 240928
 Density: 828
 Population: 199812341
