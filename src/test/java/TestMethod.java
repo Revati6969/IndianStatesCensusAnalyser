@@ -64,11 +64,23 @@ public class TestMethod {
     }
 
     @Test
-    public void givenStateCode_WhenTrue_NumberOfRecordShouldMatch() throws IOException {
+    public void givenStateCode_WhenTrue_NumberOfRecordShouldMatch() throws StatesCensusAnalyserException {
         FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCode.csv";
         CSVStates csvStates = new CSVStates(FILE_PATH);
         int count = csvStates.LoadCSVData();
         Assert.assertEquals(37, count);
+    }
+
+
+    @Test
+    public void givenStateCode_WhenImproperFileName_ReturnException(){
+        FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resource/StateCode.csv";
+        CSVStates csvStates = new CSVStates(FILE_PATH);
+        try {
+            csvStates.LoadCSVData();
+        } catch (StatesCensusAnalyserException e) {
+            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        }
     }
 }
 

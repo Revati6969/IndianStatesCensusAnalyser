@@ -1,15 +1,16 @@
 package com.bridgelabz.service;
+
+import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.bridgelabz.model.CSVStatesPojoClass;
-import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.opencsv.exceptions.CsvException;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Iterator;
-import java.util.List;
 
 public class CSVStates {
     public static String FILE_PATH = "/home/admin1/Desktop/CSVProgram/src/test/resources/StateCode.csv";
@@ -19,9 +20,9 @@ public class CSVStates {
         FILE_PATH = Path;
     }
 
-    public static int LoadCSVData() throws IOException{
+    public static int LoadCSVData() throws StatesCensusAnalyserException {
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(FILE_PATH));
+                Reader reader = Files.newBufferedReader(Paths.get(FILE_PATH))
 
         ) {
             CsvToBean<CSVStatesPojoClass> csvToBean = new CsvToBeanBuilder(reader)
@@ -40,9 +41,13 @@ public class CSVStates {
                 count++;
 
             }
-            }
-        return count;
+        } catch (NoSuchFileException e) {
+            throw new StatesCensusAnalyserException(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return count;
     }
+}
 
 
