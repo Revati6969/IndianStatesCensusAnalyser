@@ -1,9 +1,7 @@
 package com.bridgelabz.service;
-
 import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.bridgelabz.model.CSVStatesCensus;
 import com.bridgelabz.model.CSVStatesPojoClass;
-
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -29,7 +27,6 @@ public class StatesCensusAnalyser {
             throw new StatesCensusAnalyserException("Check delimiter and header", StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
         }
     }
-
     // Read state code csv file
     public Integer loadIndianStateCodeData(String csvFilePath) throws Exception {
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {

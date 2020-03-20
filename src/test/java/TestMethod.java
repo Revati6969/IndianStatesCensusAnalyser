@@ -1,5 +1,6 @@
 import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.bridgelabz.service.StatesCensusAnalyser;
+
 import org.junit.Assert;
 import org.junit.Test;
 
