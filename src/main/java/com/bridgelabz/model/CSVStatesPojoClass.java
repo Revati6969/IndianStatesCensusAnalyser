@@ -17,6 +17,16 @@ public class CSVStatesPojoClass {
     @CsvBindByName(column = "TIN" , required = true)
     private String TIN;
 
+    public CSVStatesPojoClass() {
+    }
+
+    public CSVStatesPojoClass(String srNo, String stateName, String stateCode, String TIN) {
+        SrNo = srNo;
+        StateName = stateName;
+        StateCode = stateCode;
+        this.TIN = TIN;
+    }
+
     public String getSrNo() {
         return SrNo;
     }
