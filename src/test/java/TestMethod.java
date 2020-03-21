@@ -1,6 +1,5 @@
-import com.bridgelabz.exception.StatesCensusAnalyserException;
+import com.bridgelabz.exception.CSVBuilderException;
 import com.bridgelabz.service.StatesCensusAnalyser;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,8 +23,8 @@ public class TestMethod {
     public void givenStateCensusAnalyserFile_WhenImproperFileName_ReturnsException() throws Exception {
         try {
             censusAnalyser.readFile("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resource/StateCensus.csv");
-        } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
 
@@ -33,8 +32,8 @@ public class TestMethod {
     public void givenStateCensusAnalyserFile_WhenImproperFileExtension_ReturnsException() throws Exception {
         try {
             censusAnalyser.readFile("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus.txt");
-        } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
 
@@ -42,8 +41,8 @@ public class TestMethod {
     public void givenStateCensusAnalyserFile_WhenIncorrectDelimiters_ReturnsException() throws Exception {
         try {
             censusAnalyser.readFile("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus1.csv");
-        } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
         }
     }
 
@@ -51,8 +50,8 @@ public class TestMethod {
     public void givenStateCensusAnalyserFile_WhenIncorrectHeader_ReturnsException() throws Exception {
         try {
             censusAnalyser.readFile("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus2.csv");
-        } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
         }
     }
 
@@ -61,8 +60,8 @@ public class TestMethod {
     public void givenStateCode_WhenImproperFileName_ReturnException() throws Exception {
         try {
             censusAnalyser.loadIndianStateCodeData("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resource/StateCode.csv");
-        } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
 
@@ -70,8 +69,8 @@ public class TestMethod {
     public void givenStateCode_WhenImproperFileType_ReturnException() throws Exception {
         try {
             censusAnalyser.loadIndianStateCodeData("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCode.txt");
-        } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
 
@@ -79,8 +78,8 @@ public class TestMethod {
     public void givenStateCode_WhenImproperDelimiter_ReturnException() throws Exception {
         try {
             censusAnalyser.loadIndianStateCodeData("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCode1.csv");
-        } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
         }
     }
 
@@ -89,8 +88,8 @@ public class TestMethod {
 
         try {
             censusAnalyser.loadIndianStateCodeData("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCode2.csv");
-        } catch (StatesCensusAnalyserException e) {
-            Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
         }
     }
 }

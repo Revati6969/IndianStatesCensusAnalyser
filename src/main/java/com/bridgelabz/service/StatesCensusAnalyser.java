@@ -1,7 +1,9 @@
 package com.bridgelabz.service;
-import com.bridgelabz.exception.StatesCensusAnalyserException;
+
+import com.bridgelabz.exception.CSVBuilderException;
 import com.bridgelabz.model.CSVStatesCensus;
 import com.bridgelabz.model.CSVStatesPojoClass;
+
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -22,11 +24,12 @@ public class StatesCensusAnalyser {
             return numOfRecords;
 
         } catch (NoSuchFileException e) {
-            throw new StatesCensusAnalyserException("Enter a right file name and type", StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
+            throw new CSVBuilderException("Enter a right file name and type", CSVBuilderException.ExceptionType.FILE_NOT_FOUND);
         } catch (RuntimeException e) {
-            throw new StatesCensusAnalyserException("Check delimiter and header", StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
+            throw new CSVBuilderException("Check delimiter and header", CSVBuilderException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
         }
     }
+
     // Read state code csv file
     public Integer loadIndianStateCodeData(String csvFilePath) throws Exception {
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
@@ -34,10 +37,10 @@ public class StatesCensusAnalyser {
             Iterable<CSVStatesPojoClass> iterableStateCode = () -> statesCSVIterator;
             int countRecord = (int) StreamSupport.stream(iterableStateCode.spliterator(), false).count();
             return countRecord;
-        }catch (NoSuchFileException e) {
-            throw new StatesCensusAnalyserException("Enter a right file name and type", StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
+        } catch (NoSuchFileException e) {
+            throw new CSVBuilderException("Enter a right file name and type", CSVBuilderException.ExceptionType.FILE_NOT_FOUND);
         } catch (RuntimeException e) {
-            throw new StatesCensusAnalyserException("Check delimiter and header", StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
+            throw new CSVBuilderException("Check delimiter and header", CSVBuilderException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
         }
     }
 

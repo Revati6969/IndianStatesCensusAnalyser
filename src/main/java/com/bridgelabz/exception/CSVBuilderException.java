@@ -1,10 +1,10 @@
 package com.bridgelabz.exception;
 
-public class StatesCensusAnalyserException extends Exception {
+public class CSVBuilderException extends Exception {
 
     public ExceptionType exceptionType;
 
-    public StatesCensusAnalyserException(String message, ExceptionType exceptionType) {
+    public CSVBuilderException(String message, ExceptionType exceptionType) {
         super(message);
         this.exceptionType = exceptionType;
 
