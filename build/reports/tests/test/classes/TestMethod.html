@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.742s</div>
+<div class="counter">0.638s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">givenCensusData_WhenSorted_ShouldReturnSortedList</td>
-<td class="success">0.043s</td>
+<td class="success">0.033s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenFileNameOfStateCode_WhenWrong_ShouldReturnCustomiseException</td>
-<td class="success">0.002s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -94,12 +94,12 @@
 </tr>
 <tr>
 <td class="success">givenFileOfStateCode_WhenDelimiterIncorrect_ShouldReturnCustomiseException</td>
-<td class="success">0.023s</td>
+<td class="success">0.024s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenFileOfStateCode_WhenHeadersIncorrect_ShouldReturnCustomiseException</td>
-<td class="success">0.217s</td>
+<td class="success">0.015s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -109,32 +109,32 @@
 </tr>
 <tr>
 <td class="success">givenFileType_WhenWrong_ShouldReturnCustomiseException</td>
-<td class="success">0.007s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenFile_WhenDelimiterIncorrect_ShouldReturnCustomiseException</td>
-<td class="success">0.058s</td>
+<td class="success">0.055s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenFile_WhenHeaderIncorrect_ShouldReturnCustomiseException</td>
-<td class="success">0.082s</td>
+<td class="success">0.025s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue</td>
-<td class="success">0.028s</td>
+<td class="success">0.021s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenNumberOfRecords_WhenMatched_ShouldReturnTrue</td>
-<td class="success">0.250s</td>
+<td class="success">0.291s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenStateCodeData_WhenSorted_ShouldReturnSortedList</td>
-<td class="success">0.032s</td>
+<td class="success">0.165s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -142,140 +142,7 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Exception in thread &quot;pool-1-thread-3&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-1-thread-1&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-1-thread-2&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-1-thread-4&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-2-thread-4&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-2-thread-3&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-2-thread-1&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-2-thread-2&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
+<pre>Exception in thread &quot;pool-2-thread-1&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
 	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:99)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
@@ -286,140 +153,7 @@ Caused by: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data
 	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
 	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
 	... 3 more
-Exception in thread &quot;pool-3-thread-1&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesPojoClass
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesPojoClass.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-4-thread-1&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-5-thread-1&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-5-thread-4&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-5-thread-2&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesCensus
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesCensus.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-6-thread-1&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesPojoClass
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesPojoClass.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-6-thread-2&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:104)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:204)
-	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:326)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
-	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
-	... 3 more
-Caused by: java.lang.InstantiationException: com.bridgelabz.model.CSVStatesPojoClass
-	at java.base/java.lang.Class.newInstance(Class.java:571)
-	at com.opencsv.bean.AbstractMappingStrategy.createBean(AbstractMappingStrategy.java:196)
-	... 6 more
-Caused by: java.lang.NoSuchMethodException: com.bridgelabz.model.CSVStatesPojoClass.&lt;init&gt;()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
-	at java.base/java.lang.Class.newInstance(Class.java:556)
-	... 7 more
-Exception in thread &quot;pool-7-thread-1&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvBeanIntrospectionException: Basic instantiation of the given bean type (and subordinate beans created through recursion, if applicable) was determined to be impossible.
+Exception in thread &quot;pool-7-thread-2&quot; java.lang.RuntimeException: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
 </pre>
 </span>
 </div>
@@ -431,7 +165,7 @@ Exception in thread &quot;pool-7-thread-1&quot; java.lang.RuntimeException: com.
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.2.1</a> at 24-Mar-2020, 4:58:43 PM</p>
+<a href="http://www.gradle.org">Gradle 5.2.1</a> at 24-Mar-2020, 5:07:42 PM</p>
 </div>
 </div>
 </body>
