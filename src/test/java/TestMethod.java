@@ -1,5 +1,7 @@
 import com.bridgelabz.exception.CSVBuilderException;
+import com.bridgelabz.model.CSVStatesCensus;
 import com.bridgelabz.service.StatesCensusAnalyser;
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -90,6 +92,17 @@ public class TestMethod {
             censusAnalyser.loadIndianStateCodeData("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCode2.csv");
         } catch (CSVBuilderException e) {
             Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT, e.exceptionType);
+        }
+    }
+
+    @Test
+    public void givenIndianStateCensusData_WhenSorted_ReturnSortedResult() {
+        try {
+            StatesCensusAnalyser statesCensusAnalyser = new StatesCensusAnalyser();
+            String stateWiseSortedData = statesCensusAnalyser.getStateWiseSortedData("/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus.csv");
+            CSVStatesCensus[] CensusAnalysers = new Gson().fromJson(stateWiseSortedData, CSVStatesCensus[].class);
+            Assert.assertEquals("Andhra Pradesh", CensusAnalysers[0].state);
+        }catch (CSVBuilderException e){
         }
     }
 }
