@@ -9,26 +9,23 @@ import java.util.Iterator;
 import java.util.List;
 
 public class OpenCSV implements CSV_Interface {
-    //Return file in iterator
-    public <E> Iterator<E> CSVfileIterator(Reader reader, Class<E> csvClass) throws CSVBuilderException {
-        return this.getCSVToBeen(reader, csvClass).iterator();
-    }
-    //Return file in List
+    //    ITERATOR OF CSV FILE
     @Override
-    public <E> List<E> getCSVfileList(Reader reader, Class<E> csvClass) throws CSVBuilderException {
-        return this.getCSVToBeen(reader, csvClass).parse();
+    public <E> Iterator getIterator(Reader reader, Class csvClass){
+        CsvToBean<E> csvToBean = new CsvToBeanBuilder(reader)
+                .withType(csvClass)
+                .withIgnoreLeadingWhiteSpace(true)
+                .build();
+        Iterator<E> csvUserIterator = csvToBean.iterator();
+        return csvUserIterator;
     }
-    //return csvToBean
-    private <E> CsvToBean<E> getCSVToBeen(Reader reader, Class<E> csvClass) throws CSVBuilderException {
-        try {
-            CsvToBeanBuilder<E> csvToBeanBuilder = new CsvToBeanBuilder<E>(reader);
-            CsvToBean<E> csvToBean = csvToBeanBuilder.withType(csvClass).withIgnoreLeadingWhiteSpace(true).build();
-            return csvToBean;
-        } catch (RuntimeException e) {
-            throw new CSVBuilderException("Check delimiters and header", CSVBuilderException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return (null);
+
+    //    LIST OF CSV FILE
+    @Override
+    public <E> List getList(Reader reader, Class csvClass) {
+        CsvToBeanBuilder<E> csvToBeanBuilder = new CsvToBeanBuilder(reader)
+                .withType(csvClass)
+                .withIgnoreLeadingWhiteSpace(true);
+        return csvToBeanBuilder.build().parse();
     }
 }
