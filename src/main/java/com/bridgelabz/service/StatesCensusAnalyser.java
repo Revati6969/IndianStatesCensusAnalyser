@@ -13,6 +13,7 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class StatesCensusAnalyser<E> {
 
@@ -37,11 +38,10 @@ public class StatesCensusAnalyser<E> {
         ) {
             OpenCSV csvBuilder = CSVBuilderFactory.createCsvBuilder();
             Iterator<CSVStatesCensus> csvStatesCensusIterator = csvBuilder.getIterator(reader, CSVStatesCensus.class);
-            while (csvStatesCensusIterator.hasNext()) {
-                CensusDAO censusDAO = new CensusDAO(csvStatesCensusIterator.next());
-                this.map.put(censusDAO.State, censusDAO);
-                list = map.values().stream().collect(Collectors.toList());
-            }
+            Iterable<CSVStatesCensus> stateCensuses = () -> csvStatesCensusIterator;
+            StreamSupport.stream(stateCensuses.spliterator(), false)
+                    .forEach(csvStatesCensus -> map.put(csvStatesCensus.state, new CensusDAO(csvStatesCensus)));
+            list = map.values().stream().collect(Collectors.toList());
             numberOfRecords = map.size();
         } catch (NoSuchFileException e) {
             throw new StatesCensusAnalyserException("Give proper file name and path", StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
@@ -67,13 +67,11 @@ public class StatesCensusAnalyser<E> {
         ) {
             OpenCSV csvBuilder = CSVBuilderFactory.createCsvBuilder();
             Iterator<CSVStatesPojoClass> csvStatesPojoClassIterator = csvBuilder.getIterator(reader, CSVStatesPojoClass.class);
-            while (csvStatesPojoClassIterator.hasNext()) {
-                CSVStatesPojoClass csvStatesPojoClass = csvStatesPojoClassIterator.next();
-                CensusDAO censusDTO = map.get(csvStatesPojoClass.StateName);
-                if (censusDTO == null)
-                    continue;
-                censusDTO.StateCode = csvStatesPojoClass.StateCode;
-            }
+            Iterable<CSVStatesPojoClass> stateCodes = () -> csvStatesPojoClassIterator;
+            StreamSupport.stream(stateCodes.spliterator(), false)
+                    .filter(csvStatesPojoClass -> map.get(csvStatesPojoClass.StateName) != null)
+                    .forEach(csvStatesPojoClass -> map.get(csvStatesPojoClass.StateName).StateCode = csvStatesPojoClass.StateCode);
+
             numberOfRecords = map.size();
         } catch (NoSuchFileException e) {
             throw new StatesCensusAnalyserException("Give proper file name and path", StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);

@@ -9,12 +9,26 @@ public class CSVStatesCensus {
     public static String state;
 
     @CsvBindByName(column = "Population", required = true)
-    public int Population;
+    public long Population;
 
     @CsvBindByName(column = "AreaInSqKm", required = true)
-    public int AreaInSqKm;
+    public long AreaInSqKm;
 
     @CsvBindByName(column = "DensityPerSqKm", required = true)
-    public int DensityPerSqKm;
+    public int DensityPerSqkm;
 
+    public CSVStatesCensus(long population, long areaInSqKm, int densityPerSqkm) {
+        Population = population;
+        AreaInSqKm = areaInSqKm;
+        DensityPerSqkm = densityPerSqkm;
+    }
+
+    @Override
+    public String toString() {
+        return "CSVStatesCensus{" +
+                "Population=" + Population +
+                ", AreaInSqKm=" + AreaInSqKm +
+                ", DensityPerSqkm=" + DensityPerSqkm +
+                '}';
+    }
 }
