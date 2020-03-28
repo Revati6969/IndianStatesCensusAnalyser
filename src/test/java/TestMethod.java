@@ -151,5 +151,18 @@ public class TestMethod {
             e.getStackTrace();
         }
     }
+
+    @Test
+    public void givenTheStateCensusData_WhenSortedOnDensityPerSqKm_ShouldReturnSortedResult() {
+        final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus.csv";
+        try {
+            stateCensusAnalyzer.loadRecords(CSV_FILE_PATH);
+            String sortedCensusData = stateCensusAnalyzer.getDensityWiseSortedCensusData();
+            CSVStatesCensus[] csvStateCensuses = new Gson().fromJson(sortedCensusData, CSVStatesCensus[].class);
+            Assert.assertEquals(1102, csvStateCensuses[0].DensityPerSqkm);
+        } catch (StatesCensusAnalyserException e) {
+            e.getStackTrace();
+        }
+    }
 }
 
