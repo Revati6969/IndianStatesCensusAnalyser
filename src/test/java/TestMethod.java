@@ -164,5 +164,18 @@ public class TestMethod {
             e.getStackTrace();
         }
     }
+
+    @Test
+    public void givenTheStateCensusData_WhenSortedOnAreaInPerSqKm_ShouldReturnSortedResult() {
+        final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/main/java/com/bridgelabz/model/CSVStatesCensus.java";
+        try {
+            stateCensusAnalyzer.loadRecords(CSV_FILE_PATH);
+            String sortedCensusData = stateCensusAnalyzer.getAreaWiseSortedCensusData();
+            CSVStatesCensus[] csvStateCensuses = new Gson().fromJson(sortedCensusData, CSVStatesCensus[].class);
+            Assert.assertEquals(342239, csvStateCensuses[0].AreaInSqKm);
+        } catch (StatesCensusAnalyserException e) {
+            e.getStackTrace();
+        }
+    }
 }
 
