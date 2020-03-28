@@ -118,7 +118,7 @@ public class TestMethod {
         final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus.csv";
         try {
             stateCensusAnalyzer.loadRecords(CSV_FILE_PATH);
-            String sortedData = stateCensusAnalyzer.SortedCensusData();
+            String sortedData = stateCensusAnalyzer.SortedStateCensusData();
             CSVStatesCensus[] censusCSV = new Gson().fromJson(sortedData, CSVStatesCensus[].class);
             Assert.assertEquals("Andhra Pradesh", censusCSV[0].state);
         } catch (StatesCensusAnalyserException e) {
@@ -131,9 +131,22 @@ public class TestMethod {
         final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCode.csv";
         try {
             stateCensusAnalyzer.loadData(CSV_FILE_PATH);
-            String SortedData = stateCensusAnalyzer.SortedCensusData();
+            String SortedData = stateCensusAnalyzer.SortedStateCensusData();
             CSVStatesPojoClass[] stateCodes = new Gson().fromJson(SortedData, CSVStatesPojoClass[].class);
             Assert.assertEquals("AD", stateCodes[0].StateCode);
+        } catch (StatesCensusAnalyserException e) {
+            e.getStackTrace();
+        }
+    }
+
+    @Test
+    public void givenTheStateCensusData_WhenSortedOnPopulation_ShouldReturnSortedResult() {
+        final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus.csv";
+        try {
+            stateCensusAnalyzer.loadRecords(CSV_FILE_PATH);
+            String sortedCensusData = stateCensusAnalyzer.getPopulationWiseSortedCensusData();
+            CSVStatesCensus[] csvStatesCensus = new Gson().fromJson(sortedCensusData, CSVStatesCensus[].class);
+            Assert.assertEquals(199812341, csvStatesCensus[0].Population);
         } catch (StatesCensusAnalyserException e) {
             e.getStackTrace();
         }
