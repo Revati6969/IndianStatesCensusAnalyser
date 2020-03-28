@@ -1,10 +1,12 @@
 package com.bridgelabz.service;
 
+import com.bridgelabz.exception.CSVBuilderException;
+
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
 
 public interface CSV_Interface {
-    <E> Iterator getIterator(Reader reader, Class csvClass);
-    <E> List getList(Reader reader, Class csvClass);
+    <E> Iterator <E> getIterator(Reader reader, Class csvClass) throws CSVBuilderException;
+    <E> List <E> getList(Reader reader, Class csvClass) throws CSVBuilderException;
 }

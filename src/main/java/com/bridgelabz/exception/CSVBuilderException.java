@@ -11,7 +11,6 @@ public class CSVBuilderException extends Exception {
     }
 
     public enum ExceptionType {
-        FILE_NOT_FOUND,
-        DELIMITER_AND_HEADER_INCORRECT
+        UNABLE_TO_PARSE;
     }
 }

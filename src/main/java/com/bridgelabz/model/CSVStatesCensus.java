@@ -6,15 +6,15 @@ public class CSVStatesCensus {
 
     //BINDING THE COLUMN NAME IN CsvBindByName CLASS
     @CsvBindByName(column = "State", required = true)
-    public String state;
+    public static String state;
 
     @CsvBindByName(column = "Population", required = true)
-    public String population;
+    public int Population;
 
     @CsvBindByName(column = "AreaInSqKm", required = true)
-    public String AreaInSqKm;
+    public int AreaInSqKm;
 
     @CsvBindByName(column = "DensityPerSqKm", required = true)
-    public String DensityPerSqKm;
+    public int DensityPerSqKm;
 
 }
