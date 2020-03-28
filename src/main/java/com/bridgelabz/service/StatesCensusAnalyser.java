@@ -87,6 +87,7 @@ public class StatesCensusAnalyser<E> {
         return numberOfRecords;
     }
 
+    //METHOD TO SORT STATE CENSUS DATA BY STATE
     public String SortedStateCensusData() throws StatesCensusAnalyserException {
         if (list == null || list.size() == 0) {
             throw new StatesCensusAnalyserException("No census data", StatesCensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
@@ -109,6 +110,7 @@ public class StatesCensusAnalyser<E> {
         return sortedStateCensusJson;
     }
 
+    //METHOD TO SORT STATE CENSUS DATA BY DENSITY
     public String getDensityWiseSortedCensusData() throws StatesCensusAnalyserException {
         if (list == null || list.size() == 0) {
             throw new StatesCensusAnalyserException( "No census data", StatesCensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
@@ -120,6 +122,20 @@ public class StatesCensusAnalyser<E> {
         return sortedStateCensusJson;
     }
 
+    //METHOD TO SORT STATE CENSUS DATA BY AREA
+    public String getAreaWiseSortedCensusData() throws StatesCensusAnalyserException {
+        if (list == null || list.size() == 0) {
+            throw new StatesCensusAnalyserException("No census data", StatesCensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+        }
+        Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.AreaInSqKm);
+        this.sortData(censusComparator);
+        Collections.reverse(list);
+        String sortedStateCensusJson = new Gson().toJson(list);
+        return sortedStateCensusJson;
+
+    }
+
+    //METHOD TO SORT CSV DATA
     private void sortData(Comparator<CensusDAO> csvComparator) {
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = 0; j < list.size() - i - 1; j++) {
@@ -132,7 +148,4 @@ public class StatesCensusAnalyser<E> {
             }
         }
     }
-
-
-
 }
