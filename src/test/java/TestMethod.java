@@ -1,4 +1,3 @@
-import com.bridgelabz.exception.CSVBuilderException;
 import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.bridgelabz.model.CSVStatesCensus;
 import com.bridgelabz.model.CSVStatesPojoClass;
@@ -7,12 +6,14 @@ import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
+
 public class TestMethod {
 
     StatesCensusAnalyser stateCensusAnalyzer = new StatesCensusAnalyser();
 
     @Test
-    public void givenNumberOfRecords_WhenMatched_ShouldReturnTrue() {
+    public void givenNumberOfRecords_WhenMatched_ShouldReturnTrue() throws IOException {
         final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus.csv";
         try {
             int numberOfRecords = stateCensusAnalyzer.loadRecords(CSV_FILE_PATH);
@@ -86,7 +87,7 @@ public class TestMethod {
     @Test
     public void givenFileTypeOfStateCode_WhenWrong_ShouldReturnCustomiseException() {
         final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCode.txt";
-       try {
+        try {
             stateCensusAnalyzer.loadData(CSV_FILE_PATH);
         } catch (StatesCensusAnalyserException e) {
             Assert.assertEquals(StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
@@ -120,7 +121,7 @@ public class TestMethod {
             stateCensusAnalyzer.loadRecords(CSV_FILE_PATH);
             String sortedData = stateCensusAnalyzer.SortedStateCensusData();
             CSVStatesCensus[] censusCSV = new Gson().fromJson(sortedData, CSVStatesCensus[].class);
-            Assert.assertEquals("Andhra Pradesh", censusCSV[0].state);
+            Assert.assertEquals("Andhra Pradesh", CSVStatesCensus.state);
         } catch (StatesCensusAnalyserException e) {
             e.getStackTrace();
         }
@@ -176,6 +177,13 @@ public class TestMethod {
         } catch (StatesCensusAnalyserException e) {
             e.getStackTrace();
         }
+    }
+
+    @Test
+    public void givenUSCensusAnalyserFile_WhenTrue_NumberOfRecordShouldMatch() throws StatesCensusAnalyserException {
+        final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/USCensusData.csv";
+        int count = stateCensusAnalyzer.loadUSCensusData(CSV_FILE_PATH);
+        Assert.assertEquals(51, count);
     }
 }
 
