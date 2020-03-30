@@ -1,10 +1,10 @@
 package com.bridgelabz.service;
 
-import com.bridgelabz.exception.CSVBuilderException;
+import com.bridgelabz.dao.CensusDAO;
 import com.bridgelabz.exception.StatesCensusAnalyserException;
-import com.bridgelabz.model.CSVStatesCensus;
-import com.bridgelabz.model.CSVStatesPojoClass;
-import com.bridgelabz.model.CSVUSCensus;
+import com.bridgelabz.dto.CSVStatesCensus;
+import com.bridgelabz.dto.CSVStatesPojoClass;
+import com.bridgelabz.dto.CSVUSCensus;
 import com.google.gson.Gson;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -19,13 +19,13 @@ import java.util.stream.StreamSupport;
 
 import static java.nio.file.Files.newBufferedReader;
 
-public class StatesCensusAnalyser<E> {
+public class CensusAnalyser<E> {
 
     List<CensusDAO> list = null;
     Map<String, CensusDAO> map = null;
 
     //CONSTRUCTOR
-    public StatesCensusAnalyser() {
+    public CensusAnalyser() {
         this.map = new HashMap<>();
         this.list = new ArrayList<>();
     }
@@ -52,8 +52,6 @@ public class StatesCensusAnalyser<E> {
         } catch (RuntimeException e) {
             throw new StatesCensusAnalyserException("Check delimiters and headers", StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (CSVBuilderException e) {
             e.printStackTrace();
         }
         return numberOfRecords;
@@ -82,8 +80,6 @@ public class StatesCensusAnalyser<E> {
         } catch (RuntimeException e) {
             throw new StatesCensusAnalyserException("Check delimiters and headers", StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (CSVBuilderException e) {
             e.printStackTrace();
         }
         return numberOfRecords;
