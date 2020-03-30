@@ -4,6 +4,7 @@ import com.bridgelabz.dto.CSVStatesCensus;
 import com.bridgelabz.dto.CSVStatesPojoClass;
 import com.bridgelabz.dto.CSVUSCensus;
 
+
 public class CensusDAO {
     public float HousingDensity;
     public String StateID;
