@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class CensusAnalyser<E> {
 
-    List<CensusDAO> censusList = null;
+    static List<CensusDAO> censusList = null;
     Map<String, CensusDAO> censusDAOMap = null;
 
     //CONSTRUCTOR
@@ -37,12 +37,12 @@ public class CensusAnalyser<E> {
     }
 
     //METHOD TO SORT STATE CENSUS DATA BY POPULATION
-    public String getPopulationWiseSortedCensusData() throws StatesCensusAnalyserException {
+    public static String getPopulationWiseSortedCensusData() throws StatesCensusAnalyserException {
         if (censusList == null || censusList.size() == 0) {
             throw new StatesCensusAnalyserException("No census data", StatesCensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
         }
         Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.Population);
-        this.sortData(censusComparator);
+        sortData(censusComparator);
         Collections.reverse(censusList);
         String sortedStateCensusJson = new Gson().toJson(censusList);
         return sortedStateCensusJson;
@@ -74,7 +74,7 @@ public class CensusAnalyser<E> {
     }
 
     //METHOD TO SORT CSV DATA
-    private void sortData(Comparator<CensusDAO> csvComparator) {
+    private static void sortData(Comparator<CensusDAO> csvComparator) {
         for (int i = 0; i < censusList.size() - 1; i++) {
             for (int j = 0; j < censusList.size() - i - 1; j++) {
                 CensusDAO census1 = censusList.get(j);
