@@ -1,3 +1,4 @@
+import com.bridgelabz.dao.CensusDAO;
 import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.bridgelabz.dto.CSVStatesCensus;
 import com.bridgelabz.dto.CSVStatesPojoClass;
@@ -184,6 +185,19 @@ public class TestMethod {
         final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/USCensusData.csv";
         int count = stateCensusAnalyzer.loadStateCensusCSVData(CensusAnalyser.Country.US, CSV_FILE_PATH);
         Assert.assertEquals(51, count);
+    }
+
+    @Test
+    public void givenTheUSCensusData_WhenSortedOnPopulation_ShouldReturnSortedResult() {
+        final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/USCensusData.csv";
+        try {
+            int numberOfRecords = stateCensusAnalyzer.loadStateCensusCSVData(CensusAnalyser.Country.US, CSV_FILE_PATH);
+            String sortedCensusData = CensusAnalyser.getPopulationWiseSortedCensusData();
+            CensusDAO[] censusDAOS = new Gson().fromJson(sortedCensusData, CensusDAO[].class);
+            Assert.assertEquals("California",censusDAOS[0].State);
+        } catch (StatesCensusAnalyserException e) {
+            e.printStackTrace();
+        }
     }
 }
 
