@@ -1,7 +1,6 @@
 import com.bridgelabz.dao.CensusDAO;
 import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.bridgelabz.dto.CSVStatesCensus;
-import com.bridgelabz.dto.CSVStatesPojoClass;
 import com.bridgelabz.service.CensusAnalyser;
 import com.google.gson.Gson;
 import org.junit.Assert;
