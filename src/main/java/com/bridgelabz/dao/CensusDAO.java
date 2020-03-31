@@ -1,12 +1,9 @@
 package com.bridgelabz.dao;
-
 import com.bridgelabz.dto.CSVStatesCensus;
 import com.bridgelabz.dto.CSVStatesPojoClass;
 import com.bridgelabz.dto.CSVUSCensus;
 import com.bridgelabz.service.CensusAnalyser;
-
 import java.util.Comparator;
-
 
 public class CensusDAO {
     public float HousingDensity;
