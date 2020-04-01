@@ -6,6 +6,7 @@ import com.bridgelabz.dto.CSVUSCensus;
 import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.bridgelabz.service.CSVBuilderFactory;
 import com.bridgelabz.service.OpenCSV;
+import org.apache.commons.collections.map.HashedMap;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -20,7 +21,7 @@ import java.util.stream.StreamSupport;
 public abstract class CensusAdapter {
     public abstract Map<String, CensusDAO> loadCensusData(String... csvFilePath) throws StatesCensusAnalyserException;
 
-    public <E> Map<String, CensusDAO> loadCensusData(Class<E> censusCSVClass, String csvFilePath) throws StatesCensusAnalyserException {
+    public  <E> Map<String, CensusDAO> loadCensusData(Class<E> censusCSVClass, String csvFilePath) throws StatesCensusAnalyserException {
         Map<String, CensusDAO> censusDAOMap = new HashMap<>();
         String extension = csvFilePath.substring(csvFilePath.lastIndexOf(".") + 1);
         if (!extension.equals("csv")) {
@@ -41,8 +42,6 @@ public abstract class CensusAdapter {
             }
         } catch (RuntimeException e) {
             throw new StatesCensusAnalyserException("Incorrect delimiter or header", StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
-        } catch (FileNotFoundException e) {
-            throw new StatesCensusAnalyserException("No such file", StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
         } catch (IOException e) {
             e.getStackTrace();
         }

@@ -16,7 +16,7 @@ public class CensusAnalyser<E> {
 
     //CONSTRUCTOR
     public CensusAnalyser(Country country) {
-       this.country = country;
+        this.country = country;
     }
 
     public int loadStateCensusCSVData(Country country, String... csvFilePath) throws StatesCensusAnalyserException {
@@ -64,7 +64,9 @@ public class CensusAnalyser<E> {
         }
     }
 
+    //ENUM FOR Sorting MODE
     public enum SortingMode {STATE, POPULATION, DENSITY, AREA}
 
+    //ENUM FOR COUNTRY
     public enum Country {INDIA, US}
 }

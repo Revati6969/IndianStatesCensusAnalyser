@@ -39,8 +39,6 @@ public class IndianCensusAdapter  extends CensusAdapter{
                     .forEach(csvStatesPojoClass -> censusDAOMap.get(csvStatesPojoClass.StateName).StateCode = csvStatesPojoClass.StateCode);
         } catch (RuntimeException e) {
             throw new StatesCensusAnalyserException("Incorrect delimiter or header in file", StatesCensusAnalyserException.ExceptionType.DELIMITER_AND_HEADER_INCORRECT);
-        } catch (FileNotFoundException e) {
-            throw new StatesCensusAnalyserException( "No such file", StatesCensusAnalyserException.ExceptionType.FILE_NOT_FOUND);
         } catch (IOException e) {
             e.getStackTrace();
         }

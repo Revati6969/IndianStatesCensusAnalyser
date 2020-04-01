@@ -17,7 +17,7 @@ public class TestMethod {
     CensusAnalyser usCensusAnalyzer = new CensusAnalyser(US);
 
     @Test
-    public void givenNumberOfRecords_WhenMatched_ShouldReturnTrue() throws IOException {
+    public void givenNumberOfRecords_WhenMatched_ShouldReturnTrue() {
         final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/StateCensus.csv";
         try {
             int numberOfRecords = indianCensusAnalyzer.loadStateCensusCSVData(INDIA, CSV_FILE_PATH);
@@ -182,12 +182,44 @@ public class TestMethod {
         final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/USCensusData.csv";
         try {
             int numberOfRecords = usCensusAnalyzer.loadStateCensusCSVData(CensusAnalyser.Country.US, CSV_FILE_PATH);
-            String sortedCensusData = usCensusAnalyzer.getPopulationWiseSortedCensusData();
+            String sortedCensusData = usCensusAnalyzer.SortedCensusData(CensusAnalyser.SortingMode.POPULATION);
             CensusDAO[] censusDAOS = new Gson().fromJson(sortedCensusData, CensusDAO[].class);
             Assert.assertEquals("California",censusDAOS[0].State);
         } catch (StatesCensusAnalyserException e) {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenTheUSCensusData_WhenSortedOnPopulationDensity_ShouldReturnSortedResult() {
+        final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/USCensusData.csv";
+        try {
+            int numberOfRecords = usCensusAnalyzer.loadStateCensusCSVData(CensusAnalyser.Country.US, CSV_FILE_PATH);
+            String sortedCensusData = usCensusAnalyzer.SortedCensusData(CensusAnalyser.SortingMode.DENSITY);
+            CensusDAO[] censusDAOS = new Gson().fromJson(sortedCensusData, CensusDAO[].class);
+            Assert.assertEquals("District of Columbia",censusDAOS[0].State);
+        } catch (StatesCensusAnalyserException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenTheUSCensusData_WhenSortedOnArea_ShouldReturnSortedResult() {
+        final String CSV_FILE_PATH = "/home/revatitekale/Desktop/CSVClone/IndianStatesCensusAnalyser/src/test/resources/USCensusData.csv";
+        try {
+            int numberOfRecords = usCensusAnalyzer.loadStateCensusCSVData(CensusAnalyser.Country.US, CSV_FILE_PATH);
+            String sortedCensusData = usCensusAnalyzer.SortedCensusData(CensusAnalyser.SortingMode.AREA);
+            CensusDAO[] censusDAOS = new Gson().fromJson(sortedCensusData, CensusDAO[].class);
+            Assert.assertEquals("Alaska",censusDAOS[0].State);
+        } catch (StatesCensusAnalyserException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
 }
 

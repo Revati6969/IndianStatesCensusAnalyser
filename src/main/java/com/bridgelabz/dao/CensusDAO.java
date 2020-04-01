@@ -6,7 +6,6 @@ import com.bridgelabz.service.CensusAnalyser;
 import java.util.Comparator;
 
 public class CensusDAO {
-    public float HousingDensity;
     public String StateID;
     public String State;
     public long Population;
@@ -36,7 +35,6 @@ public class CensusDAO {
         this.Population = csvusCensus.Population;
         this.AreaInSqKm = csvusCensus.Area;
         this.DensityPerSqkm = csvusCensus.PopulationDensity;
-        this.HousingDensity = csvusCensus.HousingDensity;
     }
 
     public static Comparator<CensusDAO> getSortComparator(CensusAnalyser.SortingMode mode) {
@@ -55,24 +53,12 @@ public class CensusDAO {
         return Population;
     }
 
-    public void setPopulation(long population) {
-        Population = population;
-    }
-
     public long getAreaInSqKm() {
         return AreaInSqKm;
     }
 
-    public void setAreaInSqKm(long areaInSqKm) {
-        AreaInSqKm = areaInSqKm;
-    }
-
     public long getDensityPerSqkm() {
         return DensityPerSqkm;
-    }
-
-    public void setDensityPerSqkm(int densityPerSqkm) {
-        DensityPerSqkm = densityPerSqkm;
     }
 
     public Object getCensusDTO(CensusAnalyser.Country country) {

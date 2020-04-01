@@ -1,6 +1,6 @@
 package com.bridgelabz.service;
 
-import com.bridgelabz.exception.CSVBuilderException;
+import com.bridgelabz.exception.StatesCensusAnalyserException;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class OpenCSV implements CSV_Interface {
     //    ITERATOR OF CSV FILE
     @Override
-    public <E> Iterator<E> getIterator(Reader reader, Class csvClass) throws CSVBuilderException {
+    public <E> Iterator<E> getIterator(Reader reader, Class<E> csvClass) throws StatesCensusAnalyserException {
         try {
             CsvToBean<E> csvToBean = new CsvToBeanBuilder(reader)
                     .withType(csvClass)
@@ -19,21 +19,20 @@ public class OpenCSV implements CSV_Interface {
                     .build();
             return csvToBean.iterator();
         } catch (IllegalStateException e) {
-            throw new CSVBuilderException("Unable to parse", CSVBuilderException.ExceptionType.UNABLE_TO_PARSE);
+            throw new StatesCensusAnalyserException("Unable to parse", StatesCensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
         }
     }
 
-        //    LIST OF CSV FILE
-        @Override
-        public <E> List < E > getList(Reader reader, Class csvClass) throws CSVBuilderException {
-            try {
-                CsvToBean csvToBean = new CsvToBeanBuilder(reader)
-                        .withType(csvClass)
-                        .withIgnoreLeadingWhiteSpace(true)
-                        .build();
-                return csvToBean.parse();
-            } catch (IllegalStateException e) {
-                throw new CSVBuilderException("Unable to parse", CSVBuilderException.ExceptionType.UNABLE_TO_PARSE);
-            }
+    @Override
+    public <E> List<E> getList(Reader reader, Class<E> csvClass) throws StatesCensusAnalyserException {
+        try {
+            CsvToBean csvToBean = new CsvToBeanBuilder(reader)
+                    .withType(csvClass)
+                    .withIgnoreLeadingWhiteSpace(true)
+                    .build();
+            return csvToBean.parse();
+        } catch (IllegalStateException e) {
+            throw new StatesCensusAnalyserException("Unable to parse", StatesCensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
         }
     }
+}

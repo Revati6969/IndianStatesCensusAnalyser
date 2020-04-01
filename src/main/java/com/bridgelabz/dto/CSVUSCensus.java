@@ -18,14 +18,25 @@ public class CSVUSCensus {
     @CsvBindByName(column = "Total area", required = true)
     public long Area;
 
-    @CsvBindByName(column = "Housing Density", required = true)
-    public float HousingDensity;
-
     public CSVUSCensus(String stateId, String state, long population, long totalArea, long populationDensity) {
         this.StateID = stateId;
         this.State = state;
         this.Population = population;
         this.Area = totalArea;
         this.PopulationDensity = populationDensity;
+    }
+
+    public CSVUSCensus() {
+    }
+
+    @Override
+    public String toString() {
+        return "CSVUSCensus{" +
+                "StateID='" + StateID + '\'' +
+                ", State='" + State + '\'' +
+                ", PopulationDensity=" + PopulationDensity +
+                ", Population=" + Population +
+                ", Area=" + Area +
+                '}';
     }
 }

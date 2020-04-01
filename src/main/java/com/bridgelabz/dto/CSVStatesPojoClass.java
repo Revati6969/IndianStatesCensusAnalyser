@@ -24,13 +24,6 @@ public class CSVStatesPojoClass {
         this.TIN = TIN;
     }
 
-    @Override
-    public String toString() {
-        return "CSVStatesPojoClass{" +
-                "SrNo=" + SrNo +
-                ", StateName='" + StateName + '\'' +
-                ", StateCode='" + StateCode + '\'' +
-                ", TIN=" + TIN +
-                '}';
+    public CSVStatesPojoClass() {
     }
 }
