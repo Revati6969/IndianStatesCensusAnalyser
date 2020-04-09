@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class CensusAnalyser<E> {
 
-    static List<CensusDAO> censusList = null;
+    List<CensusDAO> censusList = null;
     Map<String, CensusDAO> censusDAOMap = null;
     private Country country;
 
@@ -19,6 +19,12 @@ public class CensusAnalyser<E> {
         this.country = country;
     }
 
+    //ENUM FOR Sorting MODE
+    public enum SortingMode {STATE, POPULATION, DENSITY, AREA}
+
+    //ENUM FOR COUNTRY
+    public enum Country {INDIA, US}
+
     public int loadStateCensusCSVData(Country country, String... csvFilePath) throws StatesCensusAnalyserException {
         censusDAOMap = CensusAdapterFactory.getCensusData(country, csvFilePath);
         censusList = censusDAOMap.values().stream().collect(Collectors.toList());
@@ -26,9 +32,9 @@ public class CensusAnalyser<E> {
     }
 
     //METHOD TO SORT CENSUS DATA BY STATE
-    public String SortedCensusData(SortingMode mode) throws StatesCensusAnalyserException {
+    public String SortedStateCensusData(SortingMode mode) throws StatesCensusAnalyserException {
         if (censusList == null || censusList.size() == 0) {
-            throw new StatesCensusAnalyserException("No census data", StatesCensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+            throw new StatesCensusAnalyserException("No census data",StatesCensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
         }
         ArrayList arrayList = censusDAOMap.values().stream()
                 .sorted(CensusDAO.getSortComparator(mode))
@@ -37,36 +43,4 @@ public class CensusAnalyser<E> {
         return new Gson().toJson(arrayList);
 
     }
-
-    //METHOD TO SORT STATE CENSUS DATA BY POPULATION
-    public static String getPopulationWiseSortedCensusData() throws StatesCensusAnalyserException {
-        if (censusList == null || censusList.size() == 0) {
-            throw new StatesCensusAnalyserException("No census data", StatesCensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
-        }
-        Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.Population);
-        sortData(censusComparator);
-        Collections.reverse(censusList);
-        String sortedStateCensusJson = new Gson().toJson(censusList);
-        return sortedStateCensusJson;
-    }
-
-    //METHOD TO SORT CSV DATA
-    private static void sortData(Comparator<CensusDAO> csvComparator) {
-        for (int i = 0; i < censusList.size() - 1; i++) {
-            for (int j = 0; j < censusList.size() - i - 1; j++) {
-                CensusDAO census1 = censusList.get(j);
-                CensusDAO census2 = censusList.get(j + 1);
-                if (csvComparator.compare(census1, census2) > 0) {
-                    censusList.set(j, census2);
-                    censusList.set(j + 1, census1);
-                }
-            }
-        }
-    }
-
-    //ENUM FOR Sorting MODE
-    public enum SortingMode {STATE, POPULATION, DENSITY, AREA}
-
-    //ENUM FOR COUNTRY
-    public enum Country {INDIA, US}
 }
